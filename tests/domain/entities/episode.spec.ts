@@ -1,4 +1,4 @@
-import { Episode } from "@/domain";
+import { Episode } from "@/domain/entities";
 
 describe("Episode", () => {
   it("Should set episode id", () => {
