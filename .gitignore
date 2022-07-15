@@ -1,1 +1,5 @@
+# Node.js dependency directory
 node_modules
+
+# Test results directory
+coverage
