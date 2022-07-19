@@ -1,3 +1,4 @@
+import { GetEpisodesRepository } from "@/domain/contracts/repository";
 import { Episode } from "@/domain/entities";
 
 export type GetEpisodes = (params: {
