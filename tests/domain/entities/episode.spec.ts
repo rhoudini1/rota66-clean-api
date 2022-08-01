@@ -14,13 +14,13 @@ describe("Episode", () => {
 
     const sut = new Episode(props);
 
-    expect(sut.props).toBeDefined();
-    expect(sut.props.epId).toEqual(1);
-    expect(sut.props.epTitle).toEqual("any-title");
-    expect(sut.props.epDescription).toEqual("any-description");
-    expect(sut.props.linkId).toEqual("any-link");
-    expect(sut.props.bookId).toEqual(1);
-    expect(sut.props.bookTitle).toEqual("any-book");
-    expect(sut.props.bookChapter).toEqual("1, 2, 3");
+    expect(sut).toBeDefined();
+    expect(sut.epId).toEqual(1);
+    expect(sut.epTitle).toEqual("any-title");
+    expect(sut.epDescription).toEqual("any-description");
+    expect(sut.linkId).toEqual("any-link");
+    expect(sut.bookId).toEqual(1);
+    expect(sut.bookTitle).toEqual("any-book");
+    expect(sut.bookChapter).toEqual("1, 2, 3");
   });
 });

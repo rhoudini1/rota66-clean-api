@@ -1,31 +1,41 @@
-import { GetEpisodes, setupGetEpisodes } from "@/domain/usecases/episode/get-episodes";
+import { GetEpisodes, setupGetEpisodes } from "@/domain/usecases/get-episodes";
 import { GetEpisodesRepository } from "@/domain/contracts/repository/episode";
 import { Episode } from "@/domain/entities";
 
-import { mock, MockProxy } from 'jest-mock-extended';
+import { mock, MockProxy } from "jest-mock-extended";
 
 describe("CreateEvent", () => {
-	let sut: GetEpisodes;
-	let episodeRepo: MockProxy<GetEpisodesRepository>;
+  let sut: GetEpisodes;
+  let episodeRepo: MockProxy<GetEpisodesRepository>;
 
-	let filters: { offset?: number; limit?: number };
+  let filters: { offset?: number; limit?: number };
 
-	beforeAll(() => {
-		filters = {};
+  const props = {
+    epId: 1,
+    epTitle: "any-title",
+    epDescription: "any-description",
+    linkId: "any-link",
+    bookId: 1,
+    bookTitle: "any-book",
+    bookChapter: "1, 2, 3",
+  };
 
-		episodeRepo = mock();
-		episodeRepo.get.mockResolvedValue([new Episode(1), new Episode(2)]);
-	});
+  beforeAll(() => {
+    filters = {};
 
-	beforeEach(() => {
-		sut = setupGetEpisodes(episodeRepo);
-	});
+    episodeRepo = mock();
+    episodeRepo.get.mockResolvedValue([new Episode(props)]);
+  });
 
-	it("should call GetEpisodes with correct params", async () => {
-		const episodes = await sut(filters);
+  beforeEach(() => {
+    sut = setupGetEpisodes(episodeRepo);
+  });
 
-		expect(episodeRepo.get).toHaveBeenCalledTimes(1);
-		expect(episodeRepo.get).toHaveBeenCalledWith(filters);
-		expect(episodes[0]).toBeInstanceOf(Episode);
-	});
+  it("should call GetEpisodes with correct params", async () => {
+    const episodes = await sut(filters);
+
+    expect(episodeRepo.get).toHaveBeenCalledTimes(1);
+    expect(episodeRepo.get).toHaveBeenCalledWith(filters);
+    expect(episodes[0]).toBeInstanceOf(Episode);
+  });
 });
