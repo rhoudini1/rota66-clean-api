@@ -1,7 +1,13 @@
-export class Episode {
-  public epId: number;
+type EpisodeProps = {
+  epId: number;
+  epTitle: string;
+  epDescription: string;
+  linkId: string;
+  bookId: number;
+  bookTitle: string;
+  bookChapter: string;
+};
 
-  constructor(epId: number) {
-    this.epId = epId;
-  }
+export class Episode {
+  constructor(public props: EpisodeProps) {}
 }
