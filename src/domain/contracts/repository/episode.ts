@@ -8,12 +8,12 @@ export interface GetSingleEpisodeRepository {
   get: (input: GetSingleEpisodeRepository.Input) => Promise<GetSingleEpisodeRepository.Output>;
 }
 
-export interface GetEpisodesByChapter {
-  get: (input: GetEpisodesByChapter.Input) => Promise<GetEpisodesByChapter.Output>;
+export interface GetEpisodesByChapterRepository {
+  get: (input: GetEpisodesByChapterRepository.Input) => Promise<GetEpisodesByChapterRepository.Output>;
 }
 
-export interface GetRandomEpisode {
-  get: (input: GetRandomEpisode.Input) => Promise<GetRandomEpisode.Output>;
+export interface GetRandomEpisodeRepository {
+  get: (input: GetRandomEpisodeRepository.Input) => Promise<GetRandomEpisodeRepository.Output>;
 }
 
 // Defines types for input and output
@@ -27,12 +27,12 @@ export namespace GetSingleEpisodeRepository {
   export type Output = Episode;
 }
 
-export namespace GetEpisodesByChapter {
+export namespace GetEpisodesByChapterRepository {
   export type Input = { bookId: number; bookChapter: string };
   export type Output = Episode[];
 }
 
-export namespace GetRandomEpisode {
+export namespace GetRandomEpisodeRepository {
   export type Input = void;
   export type Output = Episode;
 }

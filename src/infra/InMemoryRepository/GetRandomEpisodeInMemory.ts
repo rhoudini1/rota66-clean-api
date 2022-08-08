@@ -1,7 +1,7 @@
-import { GetEpisodesRepository } from "@/domain/contracts/repository";
+import { GetRandomEpisodeRepository } from "@/domain/contracts/repository";
 import { Episode } from "@/domain/entities";
 
-export class GetEpisodesInMemory implements GetEpisodesRepository {
+export class GetRandomEpisodeInMemory implements GetRandomEpisodeRepository {
 	private readonly episodes: Episode[] = [
 		new Episode({
 			epId: 1,
@@ -50,14 +50,8 @@ export class GetEpisodesInMemory implements GetEpisodesRepository {
 		}),
 	];
 
-	async get(input: { offset?: number; limit?: number }) {
-		if (input.offset && input.limit) {
-			return this.episodes.slice(input.offset - 1, input.offset - 1 + input.limit);
-		} else if (input.offset) {
-			return this.episodes.slice(input.offset - 1);
-		} else if (input.limit) {
-			return this.episodes.slice(0, input.limit - 1);
-		}
-		return this.episodes;
+	async get() {
+		const random = Math.floor(Math.random() * this.episodes.length);
+		return this.episodes[random];
 	}
 }

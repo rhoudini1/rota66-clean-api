@@ -19,7 +19,7 @@ export class GetSingleEpisodeInMemory implements GetSingleEpisodeRepository {
 			linkId: "episode-number-2",
 			bookId: 1,
 			bookTitle: "Gênesis",
-			bookChapter: "2",
+			bookChapter: "2, 3, 4",
 		}),
 		new Episode({
 			epId: 3,
