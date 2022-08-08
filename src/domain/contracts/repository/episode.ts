@@ -28,7 +28,7 @@ export namespace GetSingleEpisodeRepository {
 }
 
 export namespace GetEpisodesByChapterRepository {
-  export type Input = { bookId: number; bookChapter: string };
+  export type Input = { bookId: number; bookChapter?: string };
   export type Output = Episode[];
 }
 
