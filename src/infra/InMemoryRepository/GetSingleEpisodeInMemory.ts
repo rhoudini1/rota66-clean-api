@@ -32,9 +32,8 @@ export class GetSingleEpisodeInMemory implements GetSingleEpisodeRepository {
 		}),
 	];
 
-	get(input: { epId: number }): Promise<Episode> {
-		return new Promise((resolve, reject) => {
-			resolve(this.episodes[input.epId]);
-		});
+	async get(input: { epId: number }): Promise<Episode> {
+		// const episode = this.episodes.find(episode => episode.epId === input.epId);
+		return this.episodes[input.epId];
 	}
 }

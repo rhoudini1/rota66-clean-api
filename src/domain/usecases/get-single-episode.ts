@@ -7,5 +7,8 @@ type Setup = (epRepository: GetSingleEpisodeRepository) => GetSingleEpisode;
 
 export const setupGetSingleEpisode: Setup = (epRepository) => async (params) => {
   const episode = await epRepository.get({ epId: params.epId });
+  if (!episode) {
+    throw new Error('Episode not found.');
+  }
   return episode;
 };
