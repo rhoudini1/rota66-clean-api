@@ -1,21 +1,15 @@
 import { Episode } from "@/domain/entities";
 
 export interface GetEpisodesRepository {
-  get: (
-    input: GetEpisodesRepository.Input
-  ) => Promise<GetEpisodesRepository.Output>;
+  get: (input: GetEpisodesRepository.Input) => Promise<GetEpisodesRepository.Output>;
 }
 
 export interface GetSingleEpisodeRepository {
-  get: (
-    input: GetSingleEpisodeRepository.Input
-  ) => Promise<GetSingleEpisodeRepository.Output>;
+  get: (input: GetSingleEpisodeRepository.Input) => Promise<GetSingleEpisodeRepository.Output>;
 }
 
 export interface GetEpisodesByChapter {
-  get: (
-    input: GetEpisodesByChapter.Input
-  ) => Promise<GetEpisodesByChapter.Output>;
+  get: (input: GetEpisodesByChapter.Input) => Promise<GetEpisodesByChapter.Output>;
 }
 
 export interface GetRandomEpisode {
